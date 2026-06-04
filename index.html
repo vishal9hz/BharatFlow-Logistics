@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatFlow Logistics - Smart National Freight & Supply Chain Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#FF6F22',
+                            blue: '#0F2942',
+                            teal: '#14B8A6',
+                            gray: '#F8FAFC',
+                            navy: '#0B1C2C',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- TOP HEADER UTILITY -->
+    <div class="bg-brand-navy text-slate-300 text-xs py-2 px-4 sm:px-6 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 border-b border-slate-800">
+        <div class="flex items-center gap-4">
+            <span><i class="fa-solid fa-phone text-brand-orange mr-1"></i> Toll-Free: 1800-309-8000</span>
+            <span class="hidden md:inline">|</span>
+            <span class="hidden md:inline"><i class="fa-solid fa-envelope text-brand-orange mr-1"></i> support@bharatflow.in</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <span><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1 animate-ping"></span> 98.7% On-Time Delivery Today</span>
+            <span class="text-xs bg-slate-800 px-2 py-0.5 rounded text-brand-orange font-semibold">GST Compliant</span>
+        </div>
+    </div>
+
+    <!-- MAIN HERO NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-tr from-brand-blue to-brand-orange p-2.5 rounded-xl shadow-md text-white flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-tight text-brand-blue">BHARAT<span class="text-brand-orange">FLOW</span></span>
+                        <p class="text-[10px] tracking-widest text-slate-500 uppercase font-bold">Logistics & Supply Chain</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Items -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#services" class="text-slate-600 hover:text-brand-orange font-semibold text-sm transition-colors">Our Services</a>
+                    <a href="#tracker" class="text-slate-600 hover:text-brand-orange font-semibold text-sm transition-colors">Live Tracking</a>
+                    <a href="#calculator" class="text-slate-600 hover:text-brand-orange font-semibold text-sm transition-colors">Rate Estimator</a>
+                    <a href="#network" class="text-slate-600 hover:text-brand-orange font-semibold text-sm transition-colors">National Network</a>
+                    <a href="#booking" class="text-slate-600 hover:text-brand-orange font-semibold text-sm transition-colors">Book Shipment</a>
+                </nav>
+
+                <!-- Navigation Action Buttons -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="#tracker" class="px-4 py-2 text-sm font-semibold text-brand-blue border border-slate-300 rounded-lg hover:border-brand-blue transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i> Track Docket
+                    </a>
+                    <a href="#booking" class="px-5 py-2.5 text-sm font-bold text-white bg-brand-orange rounded-lg hover:bg-orange-600 shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-truck-fast mr-1.5"></i> Quick Book
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:text-brand-blue focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 space-y-3 shadow-lg">
+            <a href="#services" class="mobile-nav-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">Our Services</a>
+            <a href="#tracker" class="mobile-nav-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">Live Tracking</a>
+            <a href="#calculator" class="mobile-nav-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">Rate Estimator</a>
+            <a href="#network" class="mobile-nav-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">National Network</a>
+            <a href="#booking" class="mobile-nav-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">Book Shipment</a>
+            <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+                <a href="#tracker" class="mobile-nav-link w-full text-center py-2.5 text-sm font-semibold text-brand-blue border border-slate-300 rounded-lg hover:bg-slate-50">Track Docket</a>
+                <a href="#booking" class="mobile-nav-link w-full text-center py-2.5 text-sm font-bold text-white bg-brand-orange rounded-lg hover:bg-orange-600">Quick Book</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH QUICK CHANNELS -->
+    <section class="relative bg-gradient-to-b from-slate-900 to-brand-navy text-white overflow-hidden py-16 lg:py-24">
+        <!-- Abstract Background graphics -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-orange blur-3xl"></div>
+            <div class="absolute top-1/2 left-10 w-80 h-80 rounded-full bg-cyan-500 blur-3xl"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Core Copy -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-sm font-semibold text-brand-orange border border-white/20">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
+                        </span>
+                        SLA-Driven Indian Logistics Service
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+                        Simplifying Indian Freight. <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-400 to-amber-300">Fast, Safe & Smart.</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Empowering national trade with 28 states & 8 UTs connected. Delivering unmatched FTL, Express Cargo, and custom tech-enabled supply chain services from Kashmir to Kanyakumari.
+                    </p>
+                    
+                    <!-- Stats Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 max-w-md mx-auto lg:mx-0">
+                        <div class="bg-white/5 border border-white/10 p-3 rounded-xl text-center">
+                            <p class="text-2xl sm:text-3xl font-bold text-white">20K+</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Pincodes Served</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-3 rounded-xl text-center">
+                            <p class="text-2xl sm:text-3xl font-bold text-white">500+</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">GPS-Owned Trucks</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-3 rounded-xl text-center">
+                            <p class="text-2xl sm:text-3xl font-bold text-white">24/7</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Control Tower</p>
+                        </div>
+                    </div>
+
+                    <!-- Trust Signals -->
+                    <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-slate-400 text-sm">
+                        <span>Trusted by leading brands:</span>
+                        <div class="flex items-center gap-6 opacity-60 font-bold tracking-wider">
+                            <span>TATA MFG</span>
+                            <span>RELIANCE RETAIL</span>
+                            <span>ADANI ENT</span>
+                            <span>AMAZON IN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Tracking Widget -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 text-slate-800 border border-slate-100 transform hover:scale-[1.01] transition-all">
+                        <h3 class="text-xl font-extrabold text-brand-blue mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-brand-orange"></i> Track Your Shipment
+                        </h3>
+                        <p class="text-sm text-slate-500 mb-6">Enter your Docket Number or Waybill ID to view physical status updates in real-time.</p>
+                        
+                        <form id="tracking-hero-form" class="space-y-4">
+                            <div class="relative">
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Docket Number</label>
+                                <div class="relative">
+                                    <input type="text" id="hero-waybill-input" value="BFL-MUM8042" class="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-xl focus:border-brand-orange focus:outline-none font-semibold text-slate-800 uppercase tracking-wider" placeholder="e.g. BFL-DEL1098">
+                                    <i class="fa-solid fa-barcode absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-orange text-white py-3.5 rounded-xl font-bold hover:bg-orange-600 shadow-lg shadow-orange-500/20 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-circle-notch animate-spin hidden" id="hero-track-spinner"></i>
+                                <i class="fa-solid fa-magnifying-glass"></i> Find Consignment
+                            </button>
+                        </form>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                            <span>Try Demo ID: <strong class="text-slate-700 cursor-pointer hover:underline" onclick="setDemoTracker('BFL-MUM8042')">BFL-MUM8042</strong></span>
+                            <span>Or: <strong class="text-slate-700 cursor-pointer hover:underline" onclick="setDemoTracker('BFL-KOL2981')">BFL-KOL2981</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE TRACKING INTERACTIVE DASHBOARD -->
+    <section id="tracker" class="py-16 bg-white scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-2">Real-Time Control Tower</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue tracking-tight">Consignment Status & Milestones</h2>
+                <p class="text-slate-600 mt-2">Our modern telemetry systems connect every vehicle to central operations. Search below to review milestones.</p>
+            </div>
+
+            <!-- Search Area -->
+            <div class="max-w-xl mx-auto mb-10">
+                <div class="flex gap-2 p-2 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
+                    <input type="text" id="dashboard-waybill-input" class="w-full bg-transparent px-4 py-2 focus:outline-none font-semibold text-slate-800 uppercase tracking-wider" placeholder="ENTER DOCKET NO.">
+                    <button onclick="trackConsignment()" class="bg-brand-blue text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-navy transition-colors shrink-0 flex items-center gap-2">
+                        <i class="fa-solid fa-satellite-dish"></i> Locate
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tracking Result Visualizer -->
+            <div id="tracker-result-card" class="max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-xl transition-all duration-300">
+                <!-- Result Header -->
+                <div class="bg-brand-blue text-white p-6 grid md:grid-cols-3 gap-4 items-center border-b border-slate-700">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Docket Reference</p>
+                        <h4 class="text-xl font-bold" id="res-docket">BFL-MUM8042</h4>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Route Info</p>
+                        <h4 class="text-base font-semibold" id="res-route">Mumbai Corporate Hub → New Delhi Logistics Park</h4>
+                    </div>
+                    <div class="text-left md:text-right">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500 text-slate-900" id="res-status-pill">In Transit</span>
+                    </div>
+                </div>
+
+                <!-- Shipment Progress Detail Grid -->
+                <div class="p-6 md:p-8 grid md:grid-cols-12 gap-8">
+                    <!-- Tracking details column -->
+                    <div class="md:col-span-8 space-y-6">
+                        <h5 class="text-sm font-extrabold uppercase text-slate-500 tracking-wider">Visual Journey Timeline</h5>
+                        
+                        <!-- Visual Roadmap -->
+                        <div class="relative pl-8 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">
+                            <!-- Step 4 -->
+                            <div class="relative" id="step-delivered">
+                                <span class="absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-[10px] text-slate-500 border-2 border-white font-bold" id="icon-delivered">4</span>
+                                <div>
+                                    <h6 class="font-bold text-slate-500" id="title-delivered">Out for Delivery / Handover</h6>
+                                    <p class="text-xs text-slate-400" id="time-delivered">Awaiting Local Dispatch</p>
+                                    <p class="text-xs text-slate-500 mt-1" id="desc-delivered">Consignment undergoes last-mile segregation at destination hub prior to OTP-protected dispatch.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 3 -->
+                            <div class="relative" id="step-transit">
+                                <span class="absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-brand-orange text-[10px] text-white border-2 border-white font-bold" id="icon-transit">3</span>
+                                <div>
+                                    <h6 class="font-bold text-brand-blue" id="title-transit">In Transit (Highway Network)</h6>
+                                    <p class="text-xs text-brand-orange font-semibold" id="time-transit">Active Tracking • Expected 24 hrs</p>
+                                    <p class="text-xs text-slate-600 mt-1" id="desc-transit">Passed Jaipur Bypass Toll Plaza. Supercharged via BharatFlow Multimodal Line-haul.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="relative" id="step-hub">
+                                <span class="absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-[10px] text-white border-2 border-white font-bold" id="icon-hub">2</span>
+                                <div>
+                                    <h6 class="font-bold text-slate-700" id="title-hub">Processed at Departure Terminal</h6>
+                                    <p class="text-xs text-slate-400" id="time-hub">Yesterday, 10:15 PM</p>
+                                    <p class="text-xs text-slate-500 mt-1" id="desc-hub">Automated dimensions scanned & loaded into standard 32ft Container vehicle.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 1 -->
+                            <div class="relative" id="step-pickup">
+                                <span class="absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-[10px] text-white border-2 border-white font-bold" id="icon-pickup">1</span>
+                                <div>
+                                    <h6 class="font-bold text-slate-700" id="title-pickup">Consignment Picked Up</h6>
+                                    <p class="text-xs text-slate-400" id="time-pickup">Yesterday, 04:30 PM</p>
+                                    <p class="text-xs text-slate-500 mt-1" id="desc-pickup">Safely retrieved from client warehouse by First-Mile pickup fleet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side stats column -->
+                    <div class="md:col-span-4 bg-white p-6 rounded-xl border border-slate-200/80 space-y-5">
+                        <h5 class="text-xs font-extrabold uppercase text-slate-500 tracking-wider">Docket Parameters</h5>
+                        
+                        <div>
+                            <span class="text-[11px] text-slate-400 block uppercase">Product Class</span>
+                            <span class="text-sm font-bold text-slate-800" id="param-class">Express Premium (LTL)</span>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-slate-400 block uppercase">Chargable Weight</span>
+                            <span class="text-sm font-bold text-slate-800" id="param-weight">450 kg (Volumetric)</span>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-slate-400 block uppercase">E-Way Bill Status</span>
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block mt-0.5" id="param-eway">Verified & Valid</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <span class="text-[11px] text-slate-400 block uppercase">Current Vehicle GPS Coordinates</span>
+                            <span class="text-xs font-mono text-slate-600" id="param-gps">26.9124° N, 75.7873° E</span>
+                            <p class="text-[11px] text-brand-orange mt-1"><i class="fa-solid fa-rotate animate-spin mr-1"></i> Live feed updating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SHOWCASE -->
+    <section id="services" class="py-16 bg-slate-100 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-2">Comprehensive Solutions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue tracking-tight">Our Core Cargo Offerings</h2>
+                <p class="text-slate-600 mt-2">Providing streamlined commercial operations throughout India. We provide dynamic fleet management aligned with international industry compliance.</p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- FTL -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-xl hover:border-brand-orange/40 transition-all group">
+                    <div class="w-12 h-12 bg-orange-50 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-brand-blue mb-2">Full Truck Load (FTL)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Dedicated vehicles for heavy commercial bulk transport. Direct point-to-point national line-haul with customized route optimizations & guaranteed schedules.</p>
+                    <ul class="text-xs text-slate-500 mt-4 space-y-2 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Multi-axle / containerized container configurations</li>
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Dedicated fleet sourcing & spot rates</li>
+                    </ul>
+                </div>
+
+                <!-- LTL Express -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-xl hover:border-brand-orange/40 transition-all group">
+                    <div class="w-12 h-12 bg-orange-50 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-brand-blue mb-2">Part Truck Load / Express (LTL)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Consolidate smaller freight units into integrated routes. Pay purely for the volume you occupy with automated hub-and-spoke delivery structures.</p>
+                    <ul class="text-xs text-slate-500 mt-4 space-y-2 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Highly structured weight billing with digital metrics</li>
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Wide network connectivity through major highways</li>
+                    </ul>
+                </div>
+
+                <!-- Warehousing -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-xl hover:border-brand-orange/40 transition-all group">
+                    <div class="w-12 h-12 bg-orange-50 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-warehouse"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-brand-blue mb-2">Smart Warehousing</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Grade-A regional fulfilment depots equipped with custom WMS software. Perfect for seasonal stock handling, cross-docking, and distribution.</p>
+                    <ul class="text-xs text-slate-500 mt-4 space-y-2 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Integrated digital inventory software tracking</li>
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> FIFO, LIFO, and cycle-count options</li>
+                    </ul>
+                </div>
+
+                <!-- Cold Chain -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-xl hover:border-brand-orange/40 transition-all group">
+                    <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-temperature-arrow-down"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-brand-blue mb-2">Cold Chain Logistics</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Temperature-controlled active distribution units specialized in pharma, dairy, and agricultural transit. Complete integrity reports available on every shipment.</p>
+                    <ul class="text-xs text-slate-500 mt-4 space-y-2 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-cyan-600 mr-1.5"></i> Live digital temperature logging alerts</li>
+                        <li><i class="fa-solid fa-check text-cyan-600 mr-1.5"></i> Specialized reefer fleets</li>
+                    </ul>
+                </div>
+
+                <!-- Industrial Project Cargo -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-xl hover:border-brand-orange/40 transition-all group">
+                    <div class="w-12 h-12 bg-orange-50 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-brand-blue mb-2">Project & ODC Cargo</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Specialized engineering-level operations for Over Dimensional Cargo (ODC). Customized structural planning & multimodal permits secured from end to end.</p>
+                    <ul class="text-xs text-slate-500 mt-4 space-y-2 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Structural route clearance reports prior to lift</li>
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Heavy hydraulic pullers & low-bed flatbeds</li>
+                    </ul>
+                </div>
+
+                <!-- Last Mile Retail Delivery -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-xl hover:border-brand-orange/40 transition-all group">
+                    <div class="w-12 h-12 bg-orange-50 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shop"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-brand-blue mb-2">Hyperlocal & Retail Logistics</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">E-commerce, D2C, and traditional retail distribution. Efficiently designed milk-runs to restock stores or residential addresses seamlessly.</p>
+                    <ul class="text-xs text-slate-500 mt-4 space-y-2 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Cash on Delivery (COD) processing options</li>
+                        <li><i class="fa-solid fa-check text-brand-orange mr-1.5"></i> Quick API integrations with ERP platforms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE RATE & TRANSIT TIME CALCULATOR -->
+    <section id="calculator" class="py-16 bg-white scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block">No Hidden Charges</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue tracking-tight">Calculate Estimated Commercial Rates</h2>
+                    <p class="text-slate-600">
+                        Input transit origins and load parameters to generate transparent, instant business projections.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-percent text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Dynamic Volume Calculation</h4>
+                                <p class="text-sm text-slate-500">Includes volumetric conversions based on commercial density values.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-shield-halved text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Carrier Liability Option Included</h4>
+                                <p class="text-sm text-slate-500">Allows option to cover commodity values via basic transit protection fee.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-50 border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xl">
+                        <h3 class="text-lg font-extrabold text-brand-blue mb-6 pb-4 border-b border-slate-200 flex items-center justify-between">
+                            <span><i class="fa-solid fa-calculator text-brand-orange mr-2"></i> BharatFlow Rate Estimator</span>
+                            <span class="text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-normal">Approximate Rates</span>
+                        </h3>
+
+                        <!-- Calculator Elements Form -->
+                        <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Origin State/Region</label>
+                                <select id="calc-origin" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 font-medium text-slate-800 focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange focus:outline-none">
+                                    <option value="mumbai">Maharashtra (Mumbai Hub)</option>
+                                    <option value="delhi">Delhi NCR (Gurugram Depot)</option>
+                                    <option value="bengaluru">Karnataka (Bengaluru Tech Hub)</option>
+                                    <option value="kolkata">West Bengal (Kolkata Port Area)</option>
+                                    <option value="chennai">Tamil Nadu (Chennai Terminal)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Destination State/Region</label>
+                                <select id="calc-dest" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 font-medium text-slate-800 focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange focus:outline-none">
+                                    <option value="delhi" selected>Delhi NCR (Gurugram Depot)</option>
+                                    <option value="mumbai">Maharashtra (Mumbai Hub)</option>
+                                    <option value="bengaluru">Karnataka (Bengaluru Tech Hub)</option>
+                                    <option value="kolkata">West Bengal (Kolkata Port Area)</option>
+                                    <option value="chennai">Tamil Nadu (Chennai Terminal)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Service Selection</label>
+                                <select id="calc-service" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 font-medium text-slate-800 focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange focus:outline-none">
+                                    <option value="standard">Standard Trucking (LTL)</option>
+                                    <option value="express" selected>Express Premium Delivery</option>
+                                    <option value="cold">Cold-Chain Temperature Controlled</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Total Consignment Weight (kg)</label>
+                                <div class="relative">
+                                    <input type="number" id="calc-weight" value="250" min="50" max="15000" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 font-semibold text-slate-800 focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange focus:outline-none">
+                                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">KG</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estimate Output Area -->
+                        <div class="bg-brand-blue rounded-xl p-5 text-white mb-6">
+                            <div class="grid grid-cols-2 gap-4 divide-x divide-slate-700">
+                                <div class="pr-2">
+                                    <p class="text-slate-400 text-[11px] uppercase tracking-wider">Estimated Basic Freight</p>
+                                    <h4 class="text-xl sm:text-2xl font-black text-brand-orange mt-1">₹<span id="rate-basic-price">4,500</span>*</h4>
+                                    <p class="text-[10px] text-slate-400 mt-1">Excludes GST (18%)</p>
+                                </div>
+                                <div class="pl-4">
+                                    <p class="text-slate-400 text-[11px] uppercase tracking-wider">Estimated Transit Time</p>
+                                    <h4 class="text-xl sm:text-2xl font-black text-white mt-1"><span id="rate-transit-days">2-3</span> Days</h4>
+                                    <p class="text-[10px] text-emerald-400 mt-1"><i class="fa-solid fa-circle-check"></i> Standard Road SLA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions and details -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                            <p class="text-xs text-slate-500 leading-normal max-w-xs text-center sm:text-left">
+                                *Note: Estimates include toll charges. Final cost subject to exact measurement and active diesel index values.
+                            </p>
+                            <a href="#booking" class="w-full sm:w-auto px-6 py-3 bg-brand-orange hover:bg-orange-600 text-white font-extrabold text-sm rounded-lg text-center shadow-lg transition-transform hover:-translate-y-0.5">
+                                Book This Shipment <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NATIONAL NETWORK MAP & ADVANTAGE -->
+    <section id="network" class="py-16 bg-brand-navy text-white overflow-hidden scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Map Left: Custom Stylized SVG Schematic Map of Indian logistics corridors -->
+                <div class="relative flex justify-center items-center">
+                    <!-- Tech Grid Background -->
+                    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,111,34,0.15),transparent_60%)]"></div>
+                    
+                    <!-- Stylized SVG Map of Connected Terminals -->
+                    <svg viewBox="0 0 500 550" class="w-full max-w-[450px] relative z-10 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
+                        <!-- Simulated India landmass background outline -->
+                        <path d="M 230 40 L 260 50 L 260 80 L 310 90 L 340 140 L 320 200 L 360 210 L 410 240 L 410 290 L 380 300 L 330 330 L 270 410 L 250 490 L 245 520 L 240 490 L 210 430 L 190 380 L 160 360 L 110 320 L 100 280 L 130 260 L 120 220 L 140 180 L 180 150 L 170 120 L 215 90 L 220 50 Z" fill="rgba(15, 41, 66, 0.6)" stroke="#FF6F22" stroke-width="1.5" stroke-dasharray="2 4" />
+                        
+                        <!-- Connecting Corridors/Routes lines -->
+                        <path d="M 230 110 L 160 260" stroke="#14B8A6" stroke-width="2" opacity="0.8" /> <!-- Delhi - Mumbai -->
+                        <path d="M 230 110 L 365 240" stroke="#14B8A6" stroke-width="2" opacity="0.8" /> <!-- Delhi - Kolkata -->
+                        <path d="M 160 260 L 210 380" stroke="#14B8A6" stroke-width="2" opacity="0.8" /> <!-- Mumbai - Bengaluru -->
+                        <path d="M 210 380 L 250 440" stroke="#14B8A6" stroke-width="2" opacity="0.8" /> <!-- Bengaluru - Chennai -->
+                        <path d="M 365 240 L 250 440" stroke="#14B8A6" stroke-width="2" opacity="0.8" /> <!-- Kolkata - Chennai -->
+                        <path d="M 230 110 L 210 380" stroke="rgba(255,111,34,0.4)" stroke-dasharray="3 3" stroke-width="1.5" /> <!-- Delhi - Bengaluru -->
+                        <path d="M 160 260 L 365 240" stroke="rgba(255,111,34,0.4)" stroke-dasharray="3 3" stroke-width="1.5" /> <!-- Mumbai - Kolkata -->
+                        
+                        <!-- Terminal Hub Points -->
+                        <!-- North Hub: Delhi -->
+                        <circle cx="230" cy="110" r="10" fill="#FF6F22" class="animate-pulse-slow" />
+                        <circle cx="230" cy="110" r="5" fill="#FFFFFF" />
+                        <text x="245" y="114" fill="#FFFFFF" font-family="Inter" font-size="11" font-weight="bold">DELHI NCR (Hub)</text>
+
+                        <!-- West Hub: Mumbai -->
+                        <circle cx="160" cy="260" r="10" fill="#FF6F22" class="animate-pulse-slow" />
+                        <circle cx="160" cy="260" r="5" fill="#FFFFFF" />
+                        <text x="75" y="264" fill="#FFFFFF" font-family="Inter" font-size="11" font-weight="bold">MUMBAI (West)</text>
+
+                        <!-- East Hub: Kolkata -->
+                        <circle cx="365" cy="240" r="10" fill="#FF6F22" class="animate-pulse-slow" />
+                        <circle cx="365" cy="240" r="5" fill="#FFFFFF" />
+                        <text x="380" y="244" fill="#FFFFFF" font-family="Inter" font-size="11" font-weight="bold">KOLKATA (East)</text>
+
+                        <!-- South Hub 1: Bengaluru -->
+                        <circle cx="210" cy="380" r="10" fill="#FF6F22" class="animate-pulse-slow" />
+                        <circle cx="210" cy="380" r="5" fill="#FFFFFF" />
+                        <text x="110" y="384" fill="#FFFFFF" font-family="Inter" font-size="11" font-weight="bold">BENGALURU</text>
+
+                        <!-- South Hub 2: Chennai -->
+                        <circle cx="250" cy="440" r="8" fill="#14B8A6" />
+                        <circle cx="250" cy="440" r="4" fill="#FFFFFF" />
+                        <text x="265" y="444" fill="#FFFFFF" font-family="Inter" font-size="11" font-weight="bold">CHENNAI</text>
+                    </svg>
+                </div>
+
+                <!-- Strategic Advantages Column -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-2">Golden Quadrilateral Corridors</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Our Integrated Indian Highway Grid</h2>
+                        <p class="text-slate-300 mt-2">
+                            Operating with deep presence in strategic logistics zones. Our primary freight channels utilize major expressways ensuring minimal bottleneck stoppages & fast regional transits.
+                        </p>
+                    </div>
+
+                    <!-- Advantage Blocks -->
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                            <div class="flex-shrink-0 text-brand-orange text-2xl mt-1">
+                                <i class="fa-solid fa-file-invoice"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold">100% E-Way Bill Compliance</h4>
+                                <p class="text-sm text-slate-300">Automated integration with GSTIN portals to facilitate zero delays at inter-state border checkpoints.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                            <div class="flex-shrink-0 text-teal-400 text-2xl mt-1">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold">Geo-Fenced Hub Alerts</h4>
+                                <p class="text-sm text-slate-300">Real-time alerts triggered automatically as cargo approaches major metropolitan boundary lines.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                            <div class="flex-shrink-0 text-brand-orange text-2xl mt-1">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold">In-Transit Hazard Insurance</h4>
+                                <p class="text-sm text-slate-300">Comprehensive coverage against highway damage, natural events, or theft with effortless digitally-processed claims.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE BOOKING & QUOTE GENERATION FORM -->
+    <section id="booking" class="py-16 bg-slate-100 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-2">Commercial Booking Desk</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue tracking-tight">Initiate A Shipment Request</h2>
+                <p class="text-slate-600 mt-2">Submit cargo particulars to generate an active commercial dispatch request.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Main Form Column -->
+                <div class="lg:col-span-8 bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200">
+                    <form id="shipment-booking-form" class="space-y-6">
+                        
+                        <!-- Sender / Receiver Details Grid -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Sender Group -->
+                            <div class="space-y-4">
+                                <h4 class="font-bold text-brand-blue text-sm uppercase border-b border-slate-200 pb-2"><i class="fa-solid fa-circle-arrow-up text-brand-orange mr-1.5"></i> Consignor / Sender Info</h4>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Company / Contact Name *</label>
+                                    <input type="text" id="book-sender-name" required class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. Acme Industrial Corp">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Full Pickup Address *</label>
+                                    <textarea id="book-sender-addr" required rows="2" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. Plot 4B, MIDC Industrial Area, Mumbai"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">GSTIN Number (Optional)</label>
+                                    <input type="text" id="book-sender-gst" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange uppercase" placeholder="27AAAAA1111A1Z1">
+                                </div>
+                            </div>
+
+                            <!-- Receiver Group -->
+                            <div class="space-y-4">
+                                <h4 class="font-bold text-brand-blue text-sm uppercase border-b border-slate-200 pb-2"><i class="fa-solid fa-circle-arrow-down text-teal-500 mr-1.5"></i> Consignee / Receiver Info</h4>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Company / Receiver Name *</label>
+                                    <input type="text" id="book-receiver-name" required class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. Apex Wholesalers Ltd">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Full Delivery Address *</label>
+                                    <textarea id="book-receiver-addr" required rows="2" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. Gate 2, Okhla Phase 3, New Delhi"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Recipient Phone Number *</label>
+                                    <input type="tel" id="book-receiver-phone" required class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. +91 98765 43210">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Commodity & Load Particulars -->
+                        <div class="space-y-4 pt-4 border-t border-slate-200">
+                            <h4 class="font-bold text-brand-blue text-sm uppercase"><i class="fa-solid fa-box text-slate-500 mr-1.5"></i> Commodity & Load Specifications</h4>
+                            
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Material Classification *</label>
+                                    <select id="book-material-type" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange">
+                                        <option value="Industrial Spares">Industrial Engineering Spares</option>
+                                        <option value="Pharma Goods">Pharmaceuticals & Healthcare</option>
+                                        <option value="Electronics">Consumer Electronics</option>
+                                        <option value="Chemicals">Chemical Compounds (Non-Hazardous)</option>
+                                        <option value="Agri-Products">Processed Food & Agriculture</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Declared Value (INR) *</label>
+                                    <input type="number" id="book-declared-val" required class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. 150000">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 mb-1">Special Handling Instructions</label>
+                                    <input type="text" id="book-handling-notes" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-800 text-sm focus:outline-none focus:border-brand-orange" placeholder="e.g. Stackable only, Keep Dry">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Booking and feedback trigger -->
+                        <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                            <p class="text-xs text-slate-500 max-w-md text-center sm:text-left">
+                                Submitting generates a physical shipping dispatch reservation on our sandbox server with a trackable Docket reference.
+                            </p>
+                            <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-brand-orange hover:bg-orange-600 text-white font-extrabold text-base rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-signature"></i> Finalize Booking & Generate Invoice
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Simulation Output Side Column -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-brand-navy text-white rounded-2xl p-6 shadow-xl border border-slate-800">
+                        <h4 class="font-extrabold text-base mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-ticket text-brand-orange"></i> Live Reservation Status
+                        </h4>
+                        
+                        <div id="booking-empty-state" class="text-center py-10 space-y-3">
+                            <i class="fa-solid fa-receipt text-4xl text-slate-600"></i>
+                            <p class="text-sm text-slate-400">Fill in shipper, consignee, and commodity info, then press finalize to generate your dynamic consignment docket receipt.</p>
+                        </div>
+
+                        <!-- Simulated Receipt Output (Initially Hidden) -->
+                        <div id="booking-receipt-card" class="hidden space-y-4">
+                            <div class="border-b border-dashed border-slate-700 pb-4">
+                                <span class="text-[10px] uppercase font-bold text-brand-orange tracking-widest block">System Generated Waybill</span>
+                                <div class="flex justify-between items-center mt-1">
+                                    <span class="text-lg font-mono font-bold" id="rec-docket">BFL-DEL9938</span>
+                                    <span class="text-xs font-bold text-emerald-400 px-2.5 py-0.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">RESERVED</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2 text-xs text-slate-300">
+                                <div>
+                                    <strong class="text-slate-400 block">From Address (Consignor):</strong>
+                                    <span id="rec-from" class="font-medium"></span>
+                                </div>
+                                <div>
+                                    <strong class="text-slate-400 block">To Address (Consignee):</strong>
+                                    <span id="rec-to" class="font-medium"></span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+                                    <div>
+                                        <strong class="text-slate-400 block">Material Category:</strong>
+                                        <span id="rec-material" class="font-medium text-white"></span>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-400 block">Liability Cover (INR):</strong>
+                                        <span id="rec-value" class="font-medium text-white"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action on simulated Receipt -->
+                            <div class="pt-4 border-t border-dashed border-slate-700 space-y-2">
+                                <button onclick="activateReceiptOnTracker()" class="w-full py-2 bg-white text-brand-navy hover:bg-slate-100 font-extrabold text-xs rounded-lg transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-solid fa-magnifying-glass-location"></i> Run Live Tracking On This Waybill
+                                </button>
+                                <p class="text-[10px] text-slate-500 text-center leading-normal">
+                                    Simulated Docket synced. You can now use this Waybill ID in the Live Tracking dashboard.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCORDION FAQ SECTION -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-2">Operational Answers</span>
+                <h2 class="text-3xl font-extrabold text-brand-blue tracking-tight">Frequently Asked Queries</h2>
+            </div>
+
+            <!-- Accordion container -->
+            <div class="space-y-4">
+                
+                <!-- FAQ 1 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 flex justify-between items-center focus:outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span>How are dynamic rates and highway toll variables determined?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-white">
+                        <p class="p-5 text-sm text-slate-600 leading-relaxed">
+                            BharatFlow utilizes an active pricing model that combines the National Highways Authority of India (NHAI) toll tariffs with our standard distance parameters. These are re-calibrated weekly based on global and local fuel index pricing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 flex justify-between items-center focus:outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span>What is your SLA on delayed long-distance cargo transits?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-white">
+                        <p class="p-5 text-sm text-slate-600 leading-relaxed">
+                            For critical Express Premium lines, we adhere to a rigid SLA. If the delay is caused by controllable network issues, we refund up to 15% of the calculated base freight, subject to verification.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 flex justify-between items-center focus:outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span>Does BharatFlow provide fully digital E-Way bills & documentation?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-white">
+                        <p class="p-5 text-sm text-slate-600 leading-relaxed">
+                            Yes, our custom API infrastructure interfaces directly with the NIC portal. Clients can upload raw invoice JSON sheets to generate simultaneous E-Way Bills & matching tracking dockets in seconds.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-navy text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Brand Column -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brand-orange p-2 rounded-lg text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-extrabold text-white tracking-tight">BHARAT<span class="text-brand-orange">FLOW</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Leading-edge technology connecting commercial centers in India. Reliable SLA-driven cargo movement across states.
+                    </p>
+                </div>
+
+                <!-- Quick Services Link List -->
+                <div>
+                    <h5 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Our Verticals</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Dedicated FTL Transport</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Express Hub Consolidation</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Refrigerated Cold Chains</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Custom Warehousing (Grade-A)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Major Corridors Link List -->
+                <div>
+                    <h5 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Heavy Routes</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#network" class="hover:text-brand-orange transition-colors">Delhi NCR — Mumbai Expressway</a></li>
+                        <li><a href="#network" class="hover:text-brand-orange transition-colors">Mumbai Hub — Bengaluru Corridor</a></li>
+                        <li><a href="#network" class="hover:text-brand-orange transition-colors">Kolkata Dockyard — Chennai Terminal</a></li>
+                        <li><a href="#network" class="hover:text-brand-orange transition-colors">Pune Tech Corridor — Hyderabad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support -->
+                <div>
+                    <h5 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Central Desk</h5>
+                    <ul class="space-y-2 text-xs leading-normal">
+                        <li><i class="fa-solid fa-location-dot text-brand-orange mr-1.5"></i> Cyber City Phase-II, Gurugram, Haryana - 122002</li>
+                        <li><i class="fa-solid fa-phone text-brand-orange mr-1.5"></i> Toll-Free: 1800-309-8000</li>
+                        <li><i class="fa-solid fa-paper-plane text-brand-orange mr-1.5"></i> billing@bharatflow.in</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Sub-Footer -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
+                <p>© 2026 BharatFlow Logistics Private Limited. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <span class="hover:text-white cursor-pointer">Terms of Carriage</span>
+                    <span>|</span>
+                    <span class="hover:text-white cursor-pointer">Privacy Framework</span>
+                    <span>|</span>
+                    <span class="hover:text-white cursor-pointer">GST Filings</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTING LOGIC -->
+    <script>
+        // Sandbox database of tracking routes for demo purposes
+        const trackingDb = {
+            'BFL-MUM8042': {
+                docket: 'BFL-MUM8042',
+                route: 'Mumbai Corporate Hub → New Delhi Logistics Park',
+                status: 'In Transit',
+                statusColor: 'bg-amber-500 text-slate-900',
+                class: 'Express Premium (LTL)',
+                weight: '450 kg (Volumetric)',
+                eway: 'Verified & Active',
+                gps: '26.9124° N, 75.7873° E',
+                steps: {
+                    pickup: { title: 'Consignment Picked Up', time: 'Yesterday, 04:30 PM', desc: 'Safely retrieved from client warehouse by First-Mile pickup fleet.', active: true },
+                    hub: { title: 'Processed at Departure Terminal', time: 'Yesterday, 10:15 PM', desc: 'Automated dimensions scanned & loaded into standard 32ft Container vehicle.', active: true },
+                    transit: { title: 'In Transit (Highway Network)', time: 'Active Tracking • Expected 24 hrs', desc: 'Passed Jaipur Bypass Toll Plaza. Supercharged via BharatFlow Multimodal Line-haul.', active: true, highlighted: true },
+                    delivered: { title: 'Out for Delivery / Handover', time: 'Awaiting Local Dispatch', desc: 'Consignment undergoes last-mile segregation at destination hub prior to OTP-protected dispatch.', active: false }
+                }
+            },
+            'BFL-KOL2981': {
+                docket: 'BFL-KOL2981',
+                route: 'Kolkata Port Area → Chennai Terminal',
+                status: 'Delivered',
+                statusColor: 'bg-emerald-500 text-white',
+                class: 'Heavy Freight (FTL)',
+                weight: '12,400 kg',
+                eway: 'Closed Successfully',
+                gps: '13.0827° N, 80.2707° E (Final)',
+                steps: {
+                    pickup: { title: 'Consignment Picked Up', time: 'May 28, 11:00 AM', desc: 'Retrieved with custom heavy-lift flatbed vehicle.', active: true },
+                    hub: { title: 'Processed at Departure Terminal', time: 'May 28, 08:30 PM', desc: 'Custom export clearances verified & sealed.', active: true },
+                    transit: { title: 'In Transit (Highway Network)', time: 'Completed May 31', desc: 'Linehaul vehicle cleared the coastal highway lanes seamlessly.', active: true },
+                    delivered: { title: 'Delivered Securely', time: 'June 01, 02:15 PM', desc: 'Signed off with digital OTP handover at Chennai Port.', active: true, highlighted: true }
+                }
+            }
+        };
+
+        // Mobile drawer mechanism
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Initialize state defaults for tracking elements
+        window.onload = function() {
+            setDemoTracker('BFL-MUM8042');
+            calculateRates();
+            setupRatesListeners();
+        };
+
+        // Hero Tracking Form Trigger
+        document.getElementById('tracking-hero-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const val = document.getElementById('hero-waybill-input').value.trim().toUpperCase();
+            const spinner = document.getElementById('hero-track-spinner');
+            
+            spinner.classList.remove('hidden');
+            setTimeout(() => {
+                spinner.classList.add('hidden');
+                setDemoTracker(val);
+                // Scroll smoothly to dashboard section
+                document.getElementById('tracker').scrollIntoView({ behavior: 'smooth' });
+            }, 750);
+        });
+
+        // Set Tracking values in visual state
+        function setDemoTracker(id) {
+            document.getElementById('dashboard-waybill-input').value = id;
+            trackConsignment();
+        }
+
+        // Search engine of Tracking records
+        function trackConsignment() {
+            const id = document.getElementById('dashboard-waybill-input').value.trim().toUpperCase();
+            const resultCard = document.getElementById('tracker-result-card');
+            
+            // Check database or generate a simulated custom dynamic state for newly booked packages
+            let record = trackingDb[id];
+            
+            if(!record) {
+                // Generate simulated docket for non-existing search
+                record = {
+                    docket: id || 'BFL-GENERATE',
+                    route: 'Origin Gateway → Regional Destination Center',
+                    status: 'Manifest Generated',
+                    statusColor: 'bg-indigo-500 text-white',
+                    class: 'Dynamic Waybill Service',
+                    weight: 'Variable Pack',
+                    eway: 'Pending Verification',
+                    gps: 'Not Assigned Yet',
+                    steps: {
+                        pickup: { title: 'Manifest Created', time: 'Active Now', desc: 'Consignor submitted parcel specifications to BharatFlow dispatch network.', active: true, highlighted: true },
+                        hub: { title: 'Awaiting Hub Collection', time: 'Scheduled Today', desc: 'Allocated cargo transit container queue awaiting pickup vehicle.', active: false },
+                        transit: { title: 'Highway Network Transit', time: 'Unscheduled', desc: 'Linehaul highway lanes will be assigned post consolidation.', active: false },
+                        delivered: { title: 'Handover / Out for Delivery', time: 'Unscheduled', desc: 'Destination routing and OTP-secured handover awaiting transit confirmation.', active: false }
+                    }
+                };
+            }
+
+            // Populate text elements
+            document.getElementById('res-docket').innerText = record.docket;
+            document.getElementById('res-route').innerText = record.route;
+            
+            const statusPill = document.getElementById('res-status-pill');
+            statusPill.innerText = record.status;
+            statusPill.className = `inline-block px-3 py-1 rounded-full text-xs font-bold ${record.statusColor}`;
+
+            document.getElementById('param-class').innerText = record.class;
+            document.getElementById('param-weight').innerText = record.weight;
+            document.getElementById('param-eway').innerText = record.eway;
+            document.getElementById('param-gps').innerText = record.gps;
+
+            // Paint steps in timeline
+            updateStepDom('pickup', record.steps.pickup);
+            updateStepDom('hub', record.steps.hub);
+            updateStepDom('transit', record.steps.transit);
+            updateStepDom('delivered', record.steps.delivered);
+        }
+
+        function updateStepDom(stepId, stepData) {
+            const stepEl = document.getElementById(`step-${stepId}`);
+            const iconEl = document.getElementById(`icon-${stepId}`);
+            const titleEl = document.getElementById(`title-${stepId}`);
+            const timeEl = document.getElementById(`time-${stepId}`);
+            const descEl = document.getElementById(`desc-${stepId}`);
+
+            if (stepData.active) {
+                if (stepData.highlighted) {
+                    iconEl.className = "absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-brand-orange text-[10px] text-white border-2 border-white font-bold ring-4 ring-orange-500/10";
+                    titleEl.className = "font-bold text-brand-blue";
+                    timeEl.className = "text-xs text-brand-orange font-semibold";
+                    descEl.className = "text-xs text-slate-700 mt-1";
+                } else {
+                    iconEl.className = "absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-[10px] text-white border-2 border-white font-bold";
+                    titleEl.className = "font-bold text-slate-700";
+                    timeEl.className = "text-xs text-slate-400";
+                    descEl.className = "text-xs text-slate-500 mt-1";
+                }
+            } else {
+                iconEl.className = "absolute -left-[28px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-[10px] text-slate-500 border-2 border-white font-bold";
+                titleEl.className = "font-bold text-slate-400";
+                timeEl.className = "text-xs text-slate-300";
+                descEl.className = "text-xs text-slate-400 mt-1";
+            }
+
+            titleEl.innerText = stepData.title;
+            timeEl.innerText = stepData.time;
+            descEl.innerText = stepData.desc;
+        }
+
+        // Live Rates calculations
+        function setupRatesListeners() {
+            const elements = ['calc-origin', 'calc-dest', 'calc-service', 'calc-weight'];
+            elements.forEach(id => {
+                document.getElementById(id).addEventListener('change', calculateRates);
+                document.getElementById(id).addEventListener('input', calculateRates);
+            });
+        }
+
+        function calculateRates() {
+            const origin = document.getElementById('calc-origin').value;
+            const dest = document.getElementById('calc-dest').value;
+            const service = document.getElementById('calc-service').value;
+            const weight = parseFloat(document.getElementById('calc-weight').value) || 100;
+
+            // Distance factor based on matrix keys
+            const key = `${origin}-${dest}`;
+            let baseRateFactor = 15; // default
+            let days = "2-3";
+
+            const matrix = {
+                'mumbai-delhi': { factor: 18, days: "3-4" },
+                'mumbai-bengaluru': { factor: 12, days: "2-3" },
+                'mumbai-kolkata': { factor: 26, days: "4-5" },
+                'mumbai-chennai': { factor: 15, days: "3-4" },
+
+                'delhi-mumbai': { factor: 18, days: "3-4" },
+                'delhi-bengaluru': { factor: 28, days: "4-5" },
+                'delhi-kolkata': { factor: 22, days: "4" },
+                'delhi-chennai': { factor: 30, days: "5-6" },
+
+                'bengaluru-mumbai': { factor: 12, days: "2-3" },
+                'bengaluru-delhi': { factor: 28, days: "4-5" },
+                'bengaluru-kolkata': { factor: 26, days: "4-5" },
+                'bengaluru-chennai': { factor: 8, days: "1-2" },
+            };
+
+            if (origin === dest) {
+                baseRateFactor = 5;
+                days = "1-2";
+            } else if (matrix[key]) {
+                baseRateFactor = matrix[key].factor;
+                days = matrix[key].days;
+            }
+
+            // Service premium modifiers
+            let serviceMod = 1.0;
+            if (service === 'express') serviceMod = 1.4;
+            if (service === 'cold') serviceMod = 1.8;
+
+            // Compute rate estimation
+            const estimatedBasic = Math.round(weight * baseRateFactor * serviceMod);
+            
+            document.getElementById('rate-basic-price').innerText = estimatedBasic.toLocaleString('en-IN');
+            document.getElementById('rate-transit-days').innerText = days;
+        }
+
+        // Live booking mechanism
+        document.getElementById('shipment-booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Retreive booking fields
+            const fromName = document.getElementById('book-sender-name').value;
+            const fromAddr = document.getElementById('book-sender-addr').value;
+            const toName = document.getElementById('book-receiver-name').value;
+            const toAddr = document.getElementById('book-receiver-addr').value;
+            const matClass = document.getElementById('book-material-type').value;
+            const declVal = document.getElementById('book-declared-val').value;
+
+            // Generate simulated docket number
+            const randSuffix = Math.floor(1000 + Math.random() * 9000);
+            const dynamicDocket = `BFL-IND${randSuffix}`;
+
+            // Paint inside simulated receipt
+            document.getElementById('rec-docket').innerText = dynamicDocket;
+            document.getElementById('rec-from').innerText = `${fromName}, ${fromAddr}`;
+            document.getElementById('rec-to').innerText = `${toName}, ${toAddr}`;
+            document.getElementById('rec-material').innerText = matClass;
+            document.getElementById('rec-value').innerText = `₹ ${parseFloat(declVal).toLocaleString('en-IN')}`;
+
+            // Save inside local dynamic tracker Db
+            trackingDb[dynamicDocket] = {
+                docket: dynamicDocket,
+                route: `${fromName} → ${toName}`,
+                status: 'Shed Reservation Booked',
+                statusColor: 'bg-teal-500 text-white',
+                class: matClass,
+                weight: `${document.getElementById('calc-weight').value} kg`,
+                eway: 'Generated (Draft State)',
+                gps: 'Awaiting Hub Departure Scan',
+                steps: {
+                    pickup: { title: 'Booking Confirmed', time: 'Just Now', desc: `Waybill created for pickup from ${fromName}.`, active: true, highlighted: true },
+                    hub: { title: 'Terminal Handling', time: 'Awaiting Pickup Dispatch', desc: 'Assigned linehaul corridor vehicle dispatch scheduler.', active: false },
+                    transit: { title: 'In Highway Transit', time: 'Pending Pickup', desc: 'No active telemetry coordinates until terminal dispatch is cleared.', active: false },
+                    delivered: { title: 'Handover Completed', time: 'Unscheduled', desc: 'Security OTP parameters generated for Consignee.', active: false }
+                }
+            };
+
+            // Switch view states inside card
+            document.getElementById('booking-empty-state').classList.add('hidden');
+            const receipt = document.getElementById('booking-receipt-card');
+            receipt.classList.remove('hidden');
+            receipt.classList.add('animate-pulse');
+            setTimeout(() => { receipt.classList.remove('animate-pulse'); }, 1000);
+        });
+
+        // Bridge newly booked package directly into Tracking Dashboard
+        function activateReceiptOnTracker() {
+            const docket = document.getElementById('rec-docket').innerText;
+            setDemoTracker(docket);
+            document.getElementById('tracker').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Accordion utility
+        function toggleFaq(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.fa-chevron-down');
+
+            // Collapse other elements in theory, keep it clean
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+    </script>
+</body>
+</html>
